@@ -23,7 +23,6 @@ struct GetTracesResponse {
 }
 
 service TraceLogService {
-  string ping()
   CreateBucketResponse createBucket(1: CreateBucketRequest request)
   GetTracesResponse getTraces(1: GetTracesRequest request)
 }
