@@ -3,6 +3,7 @@
 import config
 
 from modules.client import parse
+
 from modules.log import logsetup, logger
 
 import thriftpy
@@ -31,8 +32,7 @@ def main():
 
         # create thrift client
         with client_context(tracelogs_thrift.TraceLogService,
-                            config.thrift.get('host'),
-                            config.thrift.get('port'),
+                            args.thrift_server, args.thrift_port,
                             proto_factory=TCyBinaryProtocolFactory(),
                             trans_factory=TCyBufferedTransportFactory()
                             ) as thrift_client:
@@ -43,7 +43,6 @@ def main():
             output = client.dispatchCall(args.command, args)
 
             print output
-
 
     except thriftpy.thrift.TException as ex:
         logger.error('Thrift error: %s' % ex.message)

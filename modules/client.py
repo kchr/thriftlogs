@@ -20,15 +20,8 @@ def parse():
                         type=str, dest='thrift_port',
                         default=config.thrift.get('port'))
 
-    parser.add_argument('--log', default=sys.stdout,
-                        type=argparse.FileType('w'),
-                        help='save output data to file')
-
     parser.add_argument('--verbose', help='show extra details',
                         dest='verbose', action='store_true', default=False)
-
-    parser.add_argument('--debug', help='show debugging information',
-                        dest='debug', action='store_true', default=False)
 
     subparsers = parser.add_subparsers(title='subcommands',
                                        description='RPC methods',

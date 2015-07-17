@@ -20,7 +20,7 @@ def error_handler(handler):
 
     except web.HTTPError as exhttp:
         logger.debug('HTTP return status: %s' % exhttp)
-        raise exhttp
+        raise
 
     except Exception as ex:
         logger.error('Application error: %s' % ex)

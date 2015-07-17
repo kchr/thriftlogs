@@ -1,8 +1,6 @@
 import os
 import sys
 
-from modules.log import logger
-
 # add current directory to path
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
